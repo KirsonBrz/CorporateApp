@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="user_identification_phone">Телефон</string>
+  <string name="user_identification_password">Пароль</string>
+  <string name="user_identification_enter">Войти</string>
+  <string name="validation_error_incorrect_phone">Пожалуйста, убедитесь, что вы правильно ввели номер телефона</string>
+
+  <string name="error_something_went_wrong_title">Что-то пошло не так</string>
+
+  <string name="services_section">Сервисы</string>
+  <string name="orders_section">Заказы</string>
+  <string name="profile_section">Профиль</string>
+
+</resources>

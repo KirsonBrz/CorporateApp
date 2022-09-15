@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdk 31
+
+  defaultConfig {
+    minSdk 26
+    targetSdk 31
+    versionCode 1
+    versionName "1.0"
+
+    buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("false")'
+    buildConfigField 'boolean', 'RELEASE', 'Boolean.parseBoolean("false")'
+  }
+
+  packagingOptions {
+    resources.excludes += "DebugProbesKt.bin"
+  }
+
+  buildTypes {
+    debug {
+      buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("true")'
+    }
+    release {
+      buildConfigField 'boolean', 'RELEASE', 'true'
+    }
+  }
+}
+
+dependencies {
+  implementation project(":core")
+  implementation project(":auth:data")
+  implementation project(":auth:domain")
+  implementation project(path: ':services:domain')
+  implementation project(path: ':services:data')
+  implementation project(path: ':core:ui:uikit')
+  implementation project(path: ':orders:domain')
+  implementation project(path: ':orders:data')
+    implementation project(path: ':profile:domain')
+    implementation project(path: ':profile:data')
+    implementation project(path: ':profile:data')
+
+    kapt Deps.toothpickProcessor
+}

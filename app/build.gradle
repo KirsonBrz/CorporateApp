@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.kirson.corporateapp"
+        minSdk 26
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("false")'
+        buildConfigField 'boolean', 'RELEASE', 'Boolean.parseBoolean("false")'
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Deps.composeVersion
+    }
+
+    packagingOptions {
+        resources.excludes += "DebugProbesKt.bin"
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix '-dev'
+            applicationIdSuffix '.dev'
+            debuggable true
+
+            buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("true")'
+        }
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            versionNameSuffix '-release'
+            debuggable false
+
+            minifyEnabled true
+
+            buildConfigField 'boolean', 'RELEASE', 'true'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":core")
+    implementation project(":core:data")
+    implementation project(":routing")
+    implementation project(":auth:ui")
+    implementation project(":services:ui")
+    implementation project(":orders:ui")
+    implementation project(":profile:ui")
+
+    implementation Deps.coil
+    implementation Deps.firebaseCore
+    implementation Deps.firebaseMessaging
+
+    kapt Deps.toothpickProcessor
+    kapt Deps.moshiProcessor
+}

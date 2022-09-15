@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "621938998",
+    "project_id": "corporate-app-82212",
+    "storage_bucket": "corporate-app-82212.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621938998:android:f953bec48835080df48b97",
+        "android_client_info": {
+          "package_name": "com.kirson.corporateapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621938998-8rt720sqnd71g34um84tjdia1ubhvs6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kirson.corporateapp",
+            "certificate_hash": "2d9253930357352fa81c20344a03a33380b45781"
+          }
+        },
+        {
+          "client_id": "621938998-4npnkodt140e1hb6l60nngicdjja4ggb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBN7yKtNwoIKWk8JbEx-vVS5nxYbnJ0JY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621938998-4npnkodt140e1hb6l60nngicdjja4ggb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

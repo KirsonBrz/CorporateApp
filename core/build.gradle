@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdk 31
+
+  defaultConfig {
+    minSdk 26
+    targetSdk 31
+    versionCode 1
+    versionName "1.0"
+
+    buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("false")'
+    buildConfigField 'boolean', 'RELEASE', 'Boolean.parseBoolean("false")'
+  }
+
+  buildFeatures {
+    compose = true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion Deps.composeVersion
+  }
+
+  packagingOptions {
+    resources.excludes += "DebugProbesKt.bin"
+  }
+
+  buildTypes {
+    debug {
+      buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("true")'
+    }
+    release {
+      buildConfigField 'boolean', 'RELEASE', 'true'
+    }
+  }
+}
+
+dependencies {
+  api Deps.conductor
+  api Deps.unicornCoroutines
+
+  kapt Deps.toothpickProcessor
+  api Deps.coreLibs
+  api Deps.toothpickRuntime
+  api Deps.timber
+
+  api Deps.supportCoreLibs
+  api Deps.supportUiLibs
+
+  api Deps.coilCompose
+  api Deps.composeUi
+  api Deps.composeMaterial
+  api Deps.composeMaterialIcons
+  api Deps.composeTooling
+  api Deps.composeRuntime
+  api Deps.accompanistInsets
+  api Deps.accompanistSystemUiController
+  api Deps.accompanistPager
+  api Deps.accompanistPagerIndicators
+  api Deps.accompanistSwipeRefresh
+  api Deps.accompanistFlowLayout
+
+  api Deps.toothpickRuntime
+
+  implementation Deps.supportAnnotations
+}

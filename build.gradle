@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2" }
+    }
+    dependencies {
+        classpath Deps.androidGradlePlugin
+        classpath Deps.kotlinPlugin
+        classpath Deps.sqlDelightPlugin
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.squareup.sqldelight'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdk 31
+
+  defaultConfig {
+    minSdk 26
+    targetSdk 31
+    versionCode 1
+    versionName "1.0"
+
+    buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("false")'
+    buildConfigField 'boolean', 'RELEASE', 'Boolean.parseBoolean("false")'
+  }
+
+  packagingOptions {
+    resources.excludes += "DebugProbesKt.bin"
+  }
+
+  buildFeatures {
+    compose = true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion Deps.composeVersion
+  }
+
+  buildTypes {
+    debug {
+      buildConfigField 'boolean', 'DEV', 'Boolean.parseBoolean("true")'
+    }
+    release {
+      buildConfigField 'boolean', 'RELEASE', 'true'
+    }
+  }
+}
+
+dependencies {
+  api project(':core')
+}
