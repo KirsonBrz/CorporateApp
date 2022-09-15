@@ -1,3 +1,3 @@
 # Description
 
-Dimpom work by Berezkin Kirill @kirson_brz
+Diplom work by Berezkin Kirill @kirson_brz
