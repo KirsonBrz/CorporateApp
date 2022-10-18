@@ -1,3 +1,3 @@
 # Description
 
-Diplom work by Berezkin Kirill @kirson_brz
+Graduate work by Berezkin Kirill @kirson_brz
