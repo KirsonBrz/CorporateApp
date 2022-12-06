@@ -1,11 +1,13 @@
 <h1 align="left">Приложение, реализованное в рамках выпускной работы бакалавра ETU 2022</h1>
 
 
-<h2 align="left">Стэк: </h2>
+<h1 align="left">Стэк</h1>
 
 - MVI Clean Architecture project
 - Dagger2
-- Firebase Storage, Auth, Crash Analytics
+- Firebase Storage 
+- Firebase Authentication
+- Crash Analytics
 - Kotlin Coroutines
 
 <h2 align="left">Принцип работы: </h2>
@@ -43,3 +45,9 @@ IV
 
 - Для иньекции зависимостей используется Dagger2
 - Модуль rooting собирает зависимости и служит для навигации
+
+<h1 align="left">Превью</h1>
+
+https://user-images.githubusercontent.com/52128742/205923814-698e58ff-1b89-4764-8b2a-32357e51c9fe.mp4
+
+
